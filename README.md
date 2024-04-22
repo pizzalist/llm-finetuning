@@ -9,3 +9,9 @@
 - `train_llama2.py`: 불러온 LLM을 특정 데이터셋에 맞추어 파인튜닝하는 스크립트입니다. [파일 보기](./train_llama2.py)
 - `merge_push.py`: 학습된 모델 merge & Hugging Face 업로드 [파일 보기](./merge_push.py)
 - `inference.py`: Hugging Face에서 불러온 모델을 inference를 실행하는 스크립트입니다. [파일 보기](./inference.py)
+
+
+Result Models
+- [letgoofthepizza gemma-7b-it-finetuned-open-korean-instructions](https://huggingface.co/letgoofthepizza/gemma-7b-it-finetuned-open-korean-instructions)
+- [letgoofthepizza Llama-2-7b-chat-hf-finetuned-open-korean-instructions](https://huggingface.co/letgoofthepizza/Llama-2-7b-chat-hf-finetuned-open-korean-instructions)
+- [letgoofthepizza Mistral-7B-v0.1-finetuned-open-korean-instructions ](https://huggingface.co/letgoofthepizza/Mistral-7B-v0.1-finetuned-open-korean-instructions)
