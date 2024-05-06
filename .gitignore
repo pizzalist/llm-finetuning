@@ -7,3 +7,4 @@ test_gemma/
 mergedv1/
 wandb/
 cache/
+data/
