@@ -28,7 +28,7 @@ import wandb
 from typing import List, Union
 
 model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
-login(token='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')
+login(token='your_token')
 
 # data_name = 'heegyu/open-korean-instructions'
 data_path = "/home/noah/workspace/dl-study/nlp_study/llm-finetuning/data/aihub_news_sum_20per_only_text.csv"
