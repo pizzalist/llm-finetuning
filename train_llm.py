@@ -2,8 +2,11 @@
 # huggingface-cli login --token [...read_token...] # your code
 # wirte
 # huggingface-cli login --token [...read_token...]
-
+import pandas as pd
 import os
+
+from huggingface_hub import login
+
 cache_dir = '/home/noah/workspace/dl-study/nlp_study/llama2/cache'
 
 if not os.path.exists(cache_dir):
@@ -11,7 +14,7 @@ if not os.path.exists(cache_dir):
     
 os.environ['HF_HOME'] = cache_dir
 
-from datasets import load_dataset
+from datasets import load_dataset, Dataset
 
 import torch
 import transformers
@@ -24,9 +27,14 @@ import wandb
 
 from typing import List, Union
 
-model_name = "meta-llama/Llama-2-7b-chat-hf"
-data_name = 'heegyu/open-korean-instructions'
-fine_tuning_model_name = f'{model_name}-finetuned-open-korean-instructions'
+model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
+login(token='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')
+
+# data_name = 'heegyu/open-korean-instructions'
+data_path = "/home/noah/workspace/dl-study/nlp_study/llm-finetuning/data/aihub_news_sum_20per_only_text.csv"
+data = pd.read_csv(data_path)
+
+fine_tuning_model_name = f'{model_name}-news-summary'
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 
 tokenizer.pad_token = tokenizer.eos_token
@@ -54,8 +62,13 @@ bnb_config = BitsAndBytesConfig(
 wandb.login()
 wandb.init(project=fine_tuning_model_name.split('/')[-1])
 
-dataset = load_dataset(data_name, split='train[:10%]')
+
+# dataset = load_dataset(data_name, split='train[:10%]')
+# print(len(dataset))
+
+dataset = Dataset.from_pandas(data)
 print(len(dataset))
+
 # eval_dataset = load_dataset(data_name, split='train[10%:12%]')
 # print(len(eval_dataset))
 
@@ -76,7 +89,7 @@ output_dir = "./test"
 training_args = TrainingArguments(
     output_dir=output_dir,
     num_train_epochs=1,
-    per_device_train_batch_size=2,
+    per_device_train_batch_size=1,
     gradient_accumulation_steps=2,
     gradient_checkpointing=True,
     optim='paged_adamw_32bit',

@@ -7,10 +7,10 @@ from trl import SFTTrainer, DataCollatorForCompletionOnlyLM
 
 from huggingface_hub import notebook_login
 
-model_name = "meta-llama/Llama-2-7b-chat-hf"
-data_name = 'heegyu/open-korean-instructions'
-fine_tuning_model_name = f'{model_name}-finetuned-open-korean-instructions'
-output_dir = "./test/checkpoint-660"
+model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
+# data_name = 'heegyu/open-korean-instructions'
+fine_tuning_model_name = f'{model_name}-finetuned-news-summary'
+output_dir = "./test/checkpoint-1320"
 
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 tokenizer.pad_token = tokenizer.eos_token
@@ -51,5 +51,5 @@ lora_merged_model = trained_model.merge_and_unload()
 lora_merged_model.save_pretrained('merged', safe_serialization=True)
 tokenizer.save_pretrained('merged')
 
-lora_merged_model.push_to_hub('letgoofthepizza/Llama-2-7b-chat-hf-finetuned-open-korean-instructions')
-tokenizer.push_to_hub('letgoofthepizza/Llama-2-7b-chat-hf-finetuned-open-korean-instructions')
+lora_merged_model.push_to_hub('letgoofthepizza/Llama-3-8B-Instruct-news-summary')
+tokenizer.push_to_hub('letgoofthepizza/Llama-3-8B-Instruct-news-summary')
