@@ -12,7 +12,7 @@
 
 
 Result Models
-- [letgoofthepizza https://huggingface.co/letgoofthepizza/Llama-3-8B-Instruct-news-summary](https://huggingface.co/letgoofthepizza/Llama-3-8B-Instruct-news-summary)
+- [letgoofthepizza Llama-3-8B-Instruct-news-summary](https://huggingface.co/letgoofthepizza/Llama-3-8B-Instruct-news-summary)
 - [letgoofthepizza gemma-7b-it-finetuned-open-korean-instructions](https://huggingface.co/letgoofthepizza/gemma-7b-it-finetuned-open-korean-instructions)
 - [letgoofthepizza Llama-2-7b-chat-hf-finetuned-open-korean-instructions](https://huggingface.co/letgoofthepizza/Llama-2-7b-chat-hf-finetuned-open-korean-instructions)
 - [letgoofthepizza Mistral-7B-v0.1-finetuned-open-korean-instructions ](https://huggingface.co/letgoofthepizza/Mistral-7B-v0.1-finetuned-open-korean-instructions)
